@@ -36,8 +36,13 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: width 0.3s ease;
         }
-        .nav-link:hover::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
+        }
+        .nav-link.active {
+            color: #111827;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -63,7 +68,7 @@
         <div class="max-w-6xl mx-auto px-4 py-16">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="flex-shrink-0">
-                    <img src="https://picsum.photos/seed/avatar/300/300" 
+                    <img src="https://avatars.githubusercontent.com/u/144599852?v=4/seed/avatar/300/300" 
                          alt="{{ $personalInfo['name'] }}" 
                          class="w-64 h-64 rounded-full object-cover shadow-2xl border-4 border-white">
                 </div>
@@ -254,28 +259,34 @@
     </footer>
 
     <script>
-        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Navbar background change on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+
+        sections.forEach(section => observer.observe(section));
+
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-md');
-            } else {
-                nav.classList.remove('shadow-md');
-            }
+            nav.classList.toggle('shadow-md', window.scrollY > 50);
         });
     </script>
 </body>

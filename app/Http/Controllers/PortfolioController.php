@@ -9,28 +9,34 @@ class PortfolioController extends Controller
     public function index()
     {
         $personalInfo = [
-            'name' => 'Ron Rhone',
-            'title' => 'Web Developer',
+            'name' => 'Rhone Blaza',
+            'title' => 'BSIT STUDENT',
             'bio' => 'Passionate web developer with a love for creating elegant solutions to complex problems. Experienced in modern web technologies and committed to writing clean, maintainable code.',
-            'email' => 'ron@example.com',
-            'phone' => '+1 (555) 123-4567',
-            'location' => 'San Francisco, CA',
-            'linkedin' => 'https://linkedin.com/in/ronrhone',
-            'github' => 'https://github.com/ronrhone',
+            'email' => 'rhoneblaza019@gmail.com',
+            'phone' => '09 123 456 7890',
+            'location' => 'Bangued, Abra',
+            'linkedin' => 'https://linkedin.com/in/rhone-blaza-a15106422',
+            'github' => 'https://github.com/RhoneBlaza',
         ];
 
         $education = [
             [
-                'institution' => 'University of California, Berkeley',
-                'degree' => 'Bachelor of Science in Computer Science',
-                'year' => '2018 - 2022',
-                'description' => 'Graduated with honors. Focus on software engineering and web technologies.',
+                'institution' => 'Data Center College of the Philippines - Bangued',
+                'degree' => 'Bachelor of Science in Information Technology',
+                'year' => '2023 - TO PRESENT',
+                'description' => 'Currently pursuing a degree in Information Technology.',
             ],
             [
-                'institution' => 'San Francisco Coding Bootcamp',
-                'degree' => 'Full Stack Web Development Certificate',
-                'year' => '2022',
-                'description' => 'Intensive 12-week program covering modern web development frameworks.',
+                'institution' => 'Data Center College of the Philippines - Bangued',
+                'degree' => 'Hummanities and Social Sciences',
+                'year' => '2021 - 2023',
+                'description' => 'Senior High School.',
+            ],
+            [
+                'institution' => 'TESDA',
+                'degree' => 'Computer System Servicing NC II',
+                'year' => '2025',
+                'description' => 'Completed a vocational course in computer system servicing, gaining practical skills in hardware and software troubleshooting.',
             ],
         ];
 
@@ -44,22 +50,6 @@ class PortfolioController extends Controller
                 'demo' => 'https://demo.example.com',
             ],
             [
-                'title' => 'Task Management App',
-                'description' => 'A collaborative task management application with real-time updates using WebSockets.',
-                'image' => 'https://picsum.photos/seed/project2/600/400',
-                'technologies' => ['Laravel', 'React', 'Socket.io', 'Redis'],
-                'github' => 'https://github.com/ronrhone/taskmanager',
-                'demo' => 'https://taskapp.example.com',
-            ],
-            [
-                'title' => 'Weather Dashboard',
-                'description' => 'A responsive weather dashboard that displays current conditions and forecasts using third-party APIs.',
-                'image' => 'https://picsum.photos/seed/project3/600/400',
-                'technologies' => ['PHP', 'JavaScript', 'OpenWeather API', 'Chart.js'],
-                'github' => 'https://github.com/ronrhone/weather',
-                'demo' => 'https://weather.example.com',
-            ],
-            [
                 'title' => 'Portfolio Website',
                 'description' => 'This portfolio website, built with Laravel and Blade templating.',
                 'image' => 'https://picsum.photos/seed/project4/600/400',
@@ -71,10 +61,7 @@ class PortfolioController extends Controller
 
         $githubRepos = [
             ['name' => 'laravel-portfolio', 'url' => 'https://github.com/ronrhone/portfolio', 'description' => 'This portfolio website'],
-            ['name' => 'ecommerce-platform', 'url' => 'https://github.com/ronrhone/ecommerce', 'description' => 'Full-stack e-commerce solution'],
-            ['name' => 'task-manager', 'url' => 'https://github.com/ronrhone/taskmanager', 'description' => 'Collaborative task management app'],
-            ['name' => 'weather-dashboard', 'url' => 'https://github.com/ronrhone/weather', 'description' => 'Weather forecasting dashboard'],
-            ['name' => 'api-tools', 'url' => 'https://github.com/ronrhone/api-tools', 'description' => 'REST API development toolkit'],
+            ['name' => 'ecommerce-platform', 'url' => 'https://github.com/ronrhone/ecommerce', 'description' => 'Full-stack e-commerce solution']
         ];
 
         return view('portfolio', compact('personalInfo', 'education', 'projects', 'githubRepos'));
