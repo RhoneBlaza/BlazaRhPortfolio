@@ -46,26 +46,26 @@ class PortfolioController extends Controller
 
         $skills = [
             'Languages' => ['PHP', 'JavaScript', 'HTML', 'CSS', 'SQL'],
-            'Frameworks & Libraries' => ['Laravel', 'Vue.js', 'Tailwind CSS', 'Bootstrap', 'Blade'],
-            'Databases' => ['MySQL', 'SQLite'],
+            'Framework' => ['Laravel'],
+            'Database' => ['MySQL'],
             'Tools' => ['Git', 'GitHub', 'Composer', 'VS Code'],
         ];
 
         $projects = [
             [
                 'title' => 'E-Commerce Platform',
-                'description' => 'A full-featured e-commerce platform built with Laravel and Vue.js. Includes product management, shopping cart, and payment integration.',
-                'image' => 'https://picsum.photos/seed/project1/600/400',
-                'technologies' => ['Laravel', 'Vue.js', 'MySQL', 'Stripe'],
+                'description' => 'A full-featured e-commerce platform built with Laravel. Includes product management, shopping cart, and payment integration.',
+                'image' => 'https://abrakeepsph.great-site.net/img/BGR%20APC.jpg',
+                'technologies' => ['Laravel', 'MySQL'],
                 'github' => 'https://github.com/ronrhone/ecommerce',
-                'demo' => 'https://demo.example.com',
+                'demo' => 'https://abrakeepsph.great-site.net/index.php',
             ],
             [
                 'title' => 'Portfolio Website',
                 'description' => 'This portfolio website, built with Laravel and Blade templating.',
-                'image' => 'https://picsum.photos/seed/project4/600/400',
+                'image' => 'https://logospng.org/download/laravel/logo-laravel-1024.png',
                 'technologies' => ['Laravel', 'Blade', 'Tailwind CSS'],
-                'github' => 'https://github.com/ronrhone/portfolio',
+                'github' => 'https://github.com/RhoneBlaza/RhonePortfolio.git',
                 'demo' => 'https://ronrhone.dev',
             ],
         ];
