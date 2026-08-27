@@ -17,6 +17,7 @@
         tailwind.config = { darkMode: 'class' }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
         html { scroll-behavior: smooth; }
         body { transition: background-color 0.3s ease, color 0.3s ease; }
@@ -59,6 +60,7 @@
                 <!-- Desktop nav -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="nav-link text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">About</a>
+                    <a href="#skills" class="nav-link text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Skills</a>
                     <a href="#education" class="nav-link text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Education</a>
                     <a href="#projects" class="nav-link text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Projects</a>
                     <a href="#github" class="nav-link text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">GitHub</a>
@@ -84,6 +86,7 @@
             <!-- Mobile menu dropdown -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3">
                 <a href="#about" class="nav-link block text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white py-2">About</a>
+                <a href="#skills" class="nav-link block text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white py-2">Skills</a>
                 <a href="#education" class="nav-link block text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white py-2">Education</a>
                 <a href="#projects" class="nav-link block text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white py-2">Projects</a>
                 <a href="#github" class="nav-link block text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white py-2">GitHub</a>
@@ -120,29 +123,102 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    @php
+        $skillIcons = [
+            'PHP' => 'devicon-php-plain colored',
+            'JavaScript' => 'devicon-javascript-plain colored',
+            'HTML' => 'devicon-html5-plain colored',
+            'CSS' => 'devicon-css3-plain colored',
+            'Laravel' => 'devicon-laravel-plain colored',
+            'Vue.js' => 'devicon-vuejs-plain colored',
+            'Tailwind CSS' => 'devicon-tailwindcss-plain colored',
+            'Bootstrap' => 'devicon-bootstrap-plain colored',
+            'MySQL' => 'devicon-mysql-plain colored',
+            'SQLite' => 'devicon-sqlite-plain colored',
+            'Git' => 'devicon-git-plain colored',
+            'GitHub' => 'devicon-github-plain colored',
+            'Composer' => 'devicon-composer-plain colored',
+            'VS Code' => 'devicon-vscode-plain colored',
+        ];
+
+        $categoryIcons = [
+            'Languages' => 'fa-code',
+            'Frameworks & Libraries' => 'fa-layer-group',
+            'Databases' => 'fa-database',
+            'Tools' => 'fa-tools',
+        ];
+    @endphp
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Skills</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Technologies and tools I work with</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                @foreach($skills as $category => $skillsList)
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas {{ $categoryIcons[$category] ?? 'fa-star' }} text-lg text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">{{ $category }}</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        @foreach($skillsList as $skill)
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">
+                            @if(isset($skillIcons[$skill]))
+                            <i class="{{ $skillIcons[$skill] }} text-lg"></i>
+                            @endif
+                            {{ $skill }}
+                        </span>
+                        @endforeach
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <!-- Education Section -->
     <section id="education" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Educational Background</h2>
             <p class="text-center text-gray-600 dark:text-gray-400 mb-12">My academic journey and certifications</p>
             
-            <div class="space-y-8">
-                @foreach($education as $edu)
-                <div class="card-hover bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-sm">
-                    <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
-                                <i class="fas fa-graduation-cap text-2xl text-white"></i>
+            <div class="space-y-12">
+                @php
+                    $groups = [
+                        ['type' => 'formal', 'label' => 'Formal Education', 'icon' => 'fa-graduation-cap'],
+                        ['type' => 'certification', 'label' => 'Certifications', 'icon' => 'fa-certificate'],
+                    ];
+                @endphp
+                @foreach($groups as $group)
+                <div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="flex-1 h-px bg-indigo-200 dark:bg-indigo-900"></div>
+                        <h3 class="text-2xl font-bold gradient-text whitespace-nowrap">{{ $group['label'] }}</h3>
+                        <div class="flex-1 h-px bg-indigo-200 dark:bg-indigo-900"></div>
+                    </div>
+                    <div class="space-y-8">
+                        @foreach(($education[$group['type']] ?? collect()) as $edu)
+                        <div class="card-hover bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-sm">
+                            <div class="flex flex-col md:flex-row md:items-start gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
+                                        <i class="fas {{ $group['icon'] }} text-2xl text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ $edu['institution'] }}</h3>
+                                        <span class="text-indigo-600 dark:text-indigo-400 font-semibold">{{ $edu['year'] }}</span>
+                                    </div>
+                                    <p class="text-lg text-gray-700 dark:text-gray-300 font-medium mb-2">{{ $edu['degree'] }}</p>
+                                    <p class="text-gray-600 dark:text-gray-400">{{ $edu['description'] }}</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex-grow">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                                <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ $edu['institution'] }}</h3>
-                                <span class="text-indigo-600 dark:text-indigo-400 font-semibold">{{ $edu['year'] }}</span>
-                            </div>
-                            <p class="text-lg text-gray-700 dark:text-gray-300 font-medium mb-2">{{ $edu['degree'] }}</p>
-                            <p class="text-gray-600 dark:text-gray-400">{{ $edu['description'] }}</p>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 @endforeach
