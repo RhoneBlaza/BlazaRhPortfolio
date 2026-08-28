@@ -1,6 +1,6 @@
 # RhonePortfolio
 
-A personal portfolio website for **Rhone Blaza**, a BSIT student and web developer. Showcases education, skills, and projects — built with Laravel, Blade, and Tailwind CSS.
+A static personal portfolio website for **Rhone Blaza**, a BSIT student and web developer. Showcases education, skills, and projects — built with Vite, Tailwind CSS, and vanilla JavaScript.
 
 ## Features
 
@@ -11,44 +11,50 @@ A personal portfolio website for **Rhone Blaza**, a BSIT student and web develop
 - Dark mode toggle with localStorage persistence and OS preference fallback
 - Active navigation highlighting with IntersectionObserver
 
-## Requirements
+## Tech Stack
 
-- PHP 8.3+
-- Composer
-- Node.js & npm
+- Vite (build tool)
+- Tailwind CSS v4 (styling)
+- Vanilla JavaScript (interactivity)
 
-## Installation
+## Setup & Development
 
 ```bash
-# Install PHP dependencies
-composer install
-
-# Create the environment file and generate an app key
-cp .env.example .env
-php artisan key:generate
-
-# Install and build frontend assets
+# Install dependencies
 npm install
+
+# Start the dev server with hot reload
+npm run dev
+
+# Build for production (outputs to dist/)
 npm run build
 
-# Serve the application
-php artisan serve
+# Preview the production build
+npm run preview
 ```
 
-Alternatively, run `composer run setup` to perform all setup steps.
+## Deployment (Vercel)
 
-Then visit `http://localhost:8000` in your browser.
+The project is configured for Vercel deployment via `vercel.json`.
 
-## Running Locally (with hot reload)
+**Dashboard build settings:**
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
 
-```bash
-composer run dev
+Framework preset: **Vite**
+
+## Project Structure
+
 ```
-
-## Testing
-
-```bash
-php artisan test
+src/
+├── public/          # Static files copied as-is (favicon, robots.txt)
+├── css/
+│   └── style.css    # Tailwind import + custom styles
+├── js/
+│   └── main.js      # Theme toggle, mobile menu, scroll effects
+└── index.html       # Single-page portfolio
+vite.config.js       # Vite config (root: src, output: dist)
+vercel.json          # Vercel deployment configuration
 ```
 
 ## License

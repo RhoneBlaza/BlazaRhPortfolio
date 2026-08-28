@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $personalInfo['name'] }} - Portfolio</title>
+    <title>Rhone Blaza - Portfolio</title>
     <script>
         (function() {
             const stored = localStorage.getItem('theme');
@@ -12,50 +12,16 @@
             }
         })();
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <style>
-        html { scroll-behavior: smooth; }
-        body { transition: background-color 0.3s ease, color 0.3s ease; }
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        .nav-link { position: relative; }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after { width: 100%; }
-        .nav-link.active { font-weight: 600; }
-    </style>
+    <script type="module" src="/js/main.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 shadow-sm transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold gradient-text">{{ $personalInfo['name'] }}</a>
+                <a href="#" class="text-2xl font-bold gradient-text">Rhone Blaza</a>
 
                 <!-- Desktop nav -->
                 <div class="hidden md:flex items-center space-x-8">
@@ -101,15 +67,15 @@
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="flex-shrink-0">
                     <img src="https://avatars.githubusercontent.com/u/144599852?v=4/seed/avatar/300/300" 
-                         alt="{{ $personalInfo['name'] }}" 
+                         alt="Rhone Blaza" 
                          class="w-64 h-64 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700">
                 </div>
                 <div class="text-center md:text-left">
                     <h1 class="text-5xl font-bold mb-4">
-                        Hi, I'm <span class="gradient-text">{{ $personalInfo['name'] }}</span>
+                        Hi, I'm <span class="gradient-text">Rhone Blaza</span>
                     </h1>
-                    <h2 class="text-2xl text-gray-600 dark:text-gray-400 mb-6">{{ $personalInfo['title'] }}</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl leading-relaxed">{{ $personalInfo['bio'] }}</p>
+                    <h2 class="text-2xl text-gray-600 dark:text-gray-400 mb-6">BSIT STUDENT</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl leading-relaxed">Passionate web developer with a love for creating elegant solutions to complex problems. Experienced in modern web technologies and committed to writing clean, maintainable code.</p>
                     <div class="flex flex-wrap justify-center md:justify-start gap-4">
                         <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all">
                             Get In Touch
@@ -124,57 +90,66 @@
     </section>
 
     <!-- Skills Section -->
-    @php
-        $skillIcons = [
-            'PHP' => 'devicon-php-plain colored',
-            'JavaScript' => 'devicon-javascript-plain colored',
-            'HTML' => 'devicon-html5-plain colored',
-            'CSS' => 'devicon-css3-plain colored',
-            'Laravel' => 'devicon-laravel-plain colored',
-            'Vue.js' => 'devicon-vuejs-plain colored',
-            'Tailwind CSS' => 'devicon-tailwindcss-plain colored',
-            'Bootstrap' => 'devicon-bootstrap-plain colored',
-            'MySQL' => 'devicon-mysql-plain colored',
-            'SQLite' => 'devicon-sqlite-plain colored',
-            'Git' => 'devicon-git-plain colored',
-            'GitHub' => 'devicon-github-plain colored',
-            'Composer' => 'devicon-composer-plain colored',
-            'VS Code' => 'devicon-vscode-plain colored',
-        ];
-
-        $categoryIcons = [
-            'Languages' => 'fa-code',
-            'Frameworks & Libraries' => 'fa-layer-group',
-            'Databases' => 'fa-database',
-            'Tools' => 'fa-tools',
-        ];
-    @endphp
     <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Skills</h2>
             <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Technologies and tools I work with</p>
 
             <div class="grid md:grid-cols-2 gap-8">
-                @foreach($skills as $category => $skillsList)
                 <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm">
                     <div class="flex items-center mb-6">
                         <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas {{ $categoryIcons[$category] ?? 'fa-star' }} text-lg text-white"></i>
+                            <i class="fas fa-code text-lg text-white"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">{{ $category }}</h3>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Languages</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        @foreach($skillsList as $skill)
-                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">
-                            @if(isset($skillIcons[$skill]))
-                            <i class="{{ $skillIcons[$skill] }} text-lg"></i>
-                            @endif
-                            {{ $skill }}
-                        </span>
-                        @endforeach
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-php-plain colored text-lg"></i> PHP</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-javascript-plain colored text-lg"></i> JavaScript</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-html5-plain colored text-lg"></i> HTML</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-css3-plain colored text-lg"></i> CSS</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-mysql-plain colored text-lg"></i> SQL</span>
                     </div>
                 </div>
-                @endforeach
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-layer-group text-lg text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Framework</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-laravel-plain colored text-lg"></i> Laravel</span>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-database text-lg text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Database</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-mysql-plain colored text-lg"></i> MySQL</span>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-tools text-lg text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-git-plain colored text-lg"></i> Git</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-github-plain colored text-lg"></i> GitHub</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-composer-plain colored text-lg"></i> Composer</span>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full"><i class="devicon-vscode-plain colored text-lg"></i> VS Code</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -184,44 +159,79 @@
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Educational Background</h2>
             <p class="text-center text-gray-600 dark:text-gray-400 mb-12">My academic journey and certifications</p>
-            
+
             <div class="space-y-12">
-                @php
-                    $groups = [
-                        ['type' => 'formal', 'label' => 'Formal Education', 'icon' => 'fa-graduation-cap'],
-                        ['type' => 'certification', 'label' => 'Certifications', 'icon' => 'fa-certificate'],
-                    ];
-                @endphp
-                @foreach($groups as $group)
                 <div>
                     <div class="flex items-center gap-4 mb-8">
                         <div class="flex-1 h-px bg-indigo-200 dark:bg-indigo-900"></div>
-                        <h3 class="text-2xl font-bold gradient-text whitespace-nowrap">{{ $group['label'] }}</h3>
+                        <h3 class="text-2xl font-bold gradient-text whitespace-nowrap">Formal Education</h3>
                         <div class="flex-1 h-px bg-indigo-200 dark:bg-indigo-900"></div>
                     </div>
                     <div class="space-y-8">
-                        @foreach(($education[$group['type']] ?? collect()) as $edu)
                         <div class="card-hover bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-sm">
                             <div class="flex flex-col md:flex-row md:items-start gap-6">
                                 <div class="flex-shrink-0">
                                     <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
-                                        <i class="fas {{ $group['icon'] }} text-2xl text-white"></i>
+                                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
                                     </div>
                                 </div>
                                 <div class="flex-grow">
                                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ $edu['institution'] }}</h3>
-                                        <span class="text-indigo-600 dark:text-indigo-400 font-semibold">{{ $edu['year'] }}</span>
+                                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Data Center College of the Philippines - Bangued</h3>
+                                        <span class="text-indigo-600 dark:text-indigo-400 font-semibold">2023 - TO PRESENT</span>
                                     </div>
-                                    <p class="text-lg text-gray-700 dark:text-gray-300 font-medium mb-2">{{ $edu['degree'] }}</p>
-                                    <p class="text-gray-600 dark:text-gray-400">{{ $edu['description'] }}</p>
+                                    <p class="text-lg text-gray-700 dark:text-gray-300 font-medium mb-2">Bachelor of Science in Information Technology</p>
+                                    <p class="text-gray-600 dark:text-gray-400">Currently pursuing a degree in Information Technology.</p>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+
+                        <div class="card-hover bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-sm">
+                            <div class="flex flex-col md:flex-row md:items-start gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Data Center College of the Philippines - Bangued</h3>
+                                        <span class="text-indigo-600 dark:text-indigo-400 font-semibold">2021 - 2023</span>
+                                    </div>
+                                    <p class="text-lg text-gray-700 dark:text-gray-300 font-medium mb-2">Humanities and Social Sciences</p>
+                                    <p class="text-gray-600 dark:text-gray-400">Senior High School.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                @endforeach
+
+                <div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="flex-1 h-px bg-indigo-200 dark:bg-indigo-900"></div>
+                        <h3 class="text-2xl font-bold gradient-text whitespace-nowrap">Certifications</h3>
+                        <div class="flex-1 h-px bg-indigo-200 dark:bg-indigo-900"></div>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="card-hover bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-sm">
+                            <div class="flex flex-col md:flex-row md:items-start gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-certificate text-2xl text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">TESDA</h3>
+                                        <span class="text-indigo-600 dark:text-indigo-400 font-semibold">2025</span>
+                                    </div>
+                                    <p class="text-lg text-gray-700 dark:text-gray-300 font-medium mb-2">Computer System Servicing NC II</p>
+                                    <p class="text-gray-600 dark:text-gray-400">Completed a vocational course in computer system servicing, gaining practical skills in hardware and software troubleshooting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -231,29 +241,27 @@
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-4 gradient-text">My Projects</h2>
             <p class="text-center text-gray-600 dark:text-gray-400 mb-12">A showcase of my recent work</p>
-            
+
             <div class="grid md:grid-cols-2 gap-8">
-                @foreach($projects as $project)
                 <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
-                    <img src="{{ $project['image'] }}" 
-                         alt="{{ $project['title'] }}" 
+                    <img src="https://abrakeepsph.great-site.net/img/BGR%20APC.jpg" 
+                         alt="E-Commerce Platform" 
                          class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">{{ $project['title'] }}</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">{{ $project['description'] }}</p>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">A full-featured e-commerce platform built with Laravel. Includes product management, shopping cart, and payment integration.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            @foreach($project['technologies'] as $tech)
-                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">{{ $tech }}</span>
-                            @endforeach
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">MySQL</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="{{ $project['github'] }}" 
+                            <a href="https://github.com/ronrhone/ecommerce" 
                                target="_blank" 
                                class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                                 <i class="fab fa-github text-xl"></i>
                                 <span>Code</span>
                             </a>
-                            <a href="{{ $project['demo'] }}" 
+                            <a href="https://abrakeepsph.great-site.net/index.php" 
                                target="_blank" 
                                class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                                 <i class="fas fa-external-link-alt text-xl"></i>
@@ -262,7 +270,35 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://logospng.org/download/laravel/logo-laravel-1024.png" 
+                         alt="Portfolio Website" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Portfolio Website</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">This portfolio website, built with Laravel and Blade templating.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">Blade</span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">Tailwind CSS</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://github.com/RhoneBlaza/RhonePortfolio.git" 
+                               target="_blank" 
+                               class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                                <span>Code</span>
+                            </a>
+                            <a href="https://ronrhone.dev" 
+                               target="_blank" 
+                               class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                <i class="fas fa-external-link-alt text-xl"></i>
+                                <span>Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -272,10 +308,9 @@
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-4 gradient-text">GitHub Repositories</h2>
             <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Open source projects and contributions</p>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach($githubRepos as $repo)
-                <a href="{{ $repo['url'] }}" 
+                <a href="https://github.com/ronrhone/portfolio" 
                    target="_blank" 
                    class="card-hover block bg-gray-50 dark:bg-gray-900 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
                     <div class="flex items-start gap-4">
@@ -285,14 +320,29 @@
                             </div>
                         </div>
                         <div>
-                            <h3 class="font-bold text-gray-800 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">{{ $repo['name'] }}</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{{ $repo['description'] }}</p>
+                            <h3 class="font-bold text-gray-800 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">laravel-portfolio</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">This portfolio website</p>
                         </div>
                     </div>
                 </a>
-                @endforeach
+
+                <a href="https://github.com/ronrhone/ecommerce" 
+                   target="_blank" 
+                   class="card-hover block bg-gray-50 dark:bg-gray-900 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-gray-800 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-github text-2xl text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">ecommerce-platform</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Full-stack e-commerce solution</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-            
+
             <div class="text-center mt-8">
                 <a href="https://github.com/ronrhone" 
                    target="_blank" 
@@ -309,7 +359,7 @@
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Get In Touch</h2>
             <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Feel free to reach out for collaborations or just a friendly hello</p>
-            
+
             <div class="max-w-2xl mx-auto">
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="text-center">
@@ -317,36 +367,36 @@
                             <i class="fas fa-envelope text-2xl text-white"></i>
                         </div>
                         <h3 class="font-semibold text-gray-800 dark:text-gray-100 mb-1">Email</h3>
-                        <a href="mailto:{{ $personalInfo['email'] }}" class="text-indigo-600 dark:text-indigo-400 hover:underline">{{ $personalInfo['email'] }}</a>
+                        <a href="mailto:rhoneblaza019@gmail.com" class="text-indigo-600 dark:text-indigo-400 hover:underline">rhoneblaza019@gmail.com</a>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-phone text-2xl text-white"></i>
                         </div>
                         <h3 class="font-semibold text-gray-800 dark:text-gray-100 mb-1">Phone</h3>
-                        <a href="tel:{{ $personalInfo['phone'] }}" class="text-indigo-600 dark:text-indigo-400 hover:underline">{{ $personalInfo['phone'] }}</a>
+                        <a href="tel:091234567890" class="text-indigo-600 dark:text-indigo-400 hover:underline">09 123 456 7890</a>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-map-marker-alt text-2xl text-white"></i>
                         </div>
                         <h3 class="font-semibold text-gray-800 dark:text-gray-100 mb-1">Location</h3>
-                        <p class="text-indigo-600 dark:text-indigo-400">{{ $personalInfo['location'] }}</p>
+                        <p class="text-indigo-600 dark:text-indigo-400">Bangued, Abra</p>
                     </div>
                 </div>
-                
+
                 <div class="flex justify-center gap-6">
-                    <a href="{{ $personalInfo['github'] }}" 
+                    <a href="https://github.com/RhoneBlaza" 
                        target="_blank" 
                        class="w-12 h-12 bg-gray-800 dark:bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors">
                         <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="{{ $personalInfo['linkedin'] }}" 
+                    <a href="https://linkedin.com/in/rhone-blaza-a15106422" 
                        target="_blank" 
                        class="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
                         <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
-                    <a href="mailto:{{ $personalInfo['email'] }}" 
+                    <a href="mailto:rhoneblaza019@gmail.com" 
                        class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-400 transition-colors">
                         <i class="fas fa-envelope text-xl"></i>
                     </a>
@@ -358,71 +408,9 @@
     <!-- Footer -->
     <footer class="bg-gray-900 dark:bg-gray-950 text-white py-8 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-gray-400">&copy; {{ date('Y') }} {{ $personalInfo['name'] }}. All rights reserved.</p>
-            <p class="text-gray-500 text-sm mt-2">Built with Laravel & Blade</p>
+            <p class="text-gray-400">&copy; <span id="current-year">2026</span> Rhone Blaza. All rights reserved.</p>
+            <p class="text-gray-500 text-sm mt-2">Built with Vite & Tailwind CSS</p>
         </div>
     </footer>
-
-    <script>
-        // Theme toggle logic
-        function getTheme() {
-            return localStorage.getItem('theme');
-        }
-
-        function setTheme(mode) {
-            localStorage.setItem('theme', mode);
-        }
-
-        function applyTheme(dark) {
-            document.documentElement.classList.toggle('dark', dark);
-        }
-
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.contains('dark');
-            applyTheme(!isDark);
-            setTheme(!isDark ? 'dark' : 'light');
-        }
-
-        document.getElementById('theme-toggle-desktop').addEventListener('click', toggleTheme);
-        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
-
-        // Mobile menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
-
-        // Active nav link via IntersectionObserver
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
-                        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-                    });
-                }
-            });
-        }, { rootMargin: '-40% 0px -55% 0px' });
-
-        sections.forEach(section => observer.observe(section));
-
-        // Navbar shadow on scroll
-        window.addEventListener('scroll', function() {
-            document.querySelector('nav').classList.toggle('shadow-md', window.scrollY > 50);
-        });
-    </script>
 </body>
 </html>
